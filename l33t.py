@@ -47,12 +47,19 @@ for c in leetf:
   bff.write("-")
   print("Found 3, writing '-'...")
   time.sleep(wait_time)
+ elif c == " ":
+  print("Skipping <SPACE>...")
+ elif c == "\n":
+  print("Skipping <ENTER>...")
  else:
   print("Skipping " + str(c) + "...")
   time.sleep(wait_time)
 
 bff.close()
-print("\nStarting Interpreter....\n")
+print("\nStarting Interpreter....")
 print("\n++++++ INTERPRETER: ++++++\n")
-os.system("python core/brfck-core.py l33t_bf.bf")
-os.remove("l33t_bf.bf")
+try:
+ os.system("python core/brfck-core.py l33t_bf.bf")
+ os.remove("l33t_bf.bf")
+except:
+ print("I/O Error: The file has not been found")
